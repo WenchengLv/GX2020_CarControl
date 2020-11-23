@@ -9,7 +9,6 @@
 
 #define chartonumber(x) (x-'0')
 #define Desired_Number   6300
-#define Detcet_Thresholding   1
 
 void CAR_Down(u8 step);
 void CAR_Go(u8 step);

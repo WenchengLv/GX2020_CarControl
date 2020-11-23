@@ -350,7 +350,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\bsp_GeneralTim;..\User\MeasureTim;..\User\car;..\User\RobotArm_Tim</IncludePath>
+              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\bsp_GeneralTim;..\User\MeasureTim</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -450,16 +450,6 @@
               <FileName>MeasureTim.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\MeasureTim\MeasureTim.c</FilePath>
-            </File>
-            <File>
-              <FileName>car.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\car\car.c</FilePath>
-            </File>
-            <File>
-              <FileName>RobotArm_Tim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\RobotArm_Tim\RobotArm_Tim.c</FilePath>
             </File>
           </Files>
         </Group>

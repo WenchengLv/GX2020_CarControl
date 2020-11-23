@@ -4,7 +4,7 @@
 #include "bsp_GeneralTim.h"
 #include "MeasureTim.h"
 #include "car.h"
-#include "RobotArm_Tim.h"
+// ADC1????????MDA????SRAM
 
 u16 Left_Forward=4000;
 u16 Left_Backward=4000;
@@ -16,13 +16,15 @@ u16 RobotArm_2=0;
 u16 RobotArm_3=0;
 u16 RobotArm_4=0;
 
+
 int main(void)
 {
 	GENERAL_TIM_Init();
 	USART_Config();
 	ADCx_Init();
 	TIM_Init();
-	RobotArm_TIM_Init();
+	//CAR_Down(2);
 	while(1){ 
+		
 	}
 }

@@ -24,24 +24,21 @@ static void CAR_DOWN(void)
 		ADC_ConvertedValueLocal[3] =(float) ADC_ConvertedValue[3]/4096*3.3;
 		ADC_ConvertedValueLocal[4] =(float) ADC_ConvertedValue[4]/4096*3.3;
 		ADC_ConvertedValueLocal[5] =(float) ADC_ConvertedValue[5]/4096*3.3;
-		ADC_ConvertedValueLocal[6] =(float) ADC_ConvertedValue[6]/4096*3.3;
-		ADC_ConvertedValueLocal[7] =(float) ADC_ConvertedValue[7]/4096*3.3;
-		ADC_ConvertedValueLocal[8] =(float) ADC_ConvertedValue[8]/4096*3.3;
 		PWM_PA0();
 		PWM_PA1();
 		PWM_PA2();
 		PWM_PA3();
-		if(ADC_ConvertedValueLocal[0]>Detcet_Thresholding||ADC_ConvertedValueLocal[6]>Detcet_Thresholding)
+		if(ADC_ConvertedValueLocal[0]>1)
 		{
 			Right_Forward=Desired_Number;
 			Right_Backward=Desired_Number;
 		}
-		if(ADC_ConvertedValueLocal[2]>Detcet_Thresholding||ADC_ConvertedValueLocal[8]>Detcet_Thresholding)
+		if(ADC_ConvertedValueLocal[1]>1)
 		{
 			Left_Forward=Desired_Number;
       Left_Backward=Desired_Number;
 		}
-		if(TIM_GetFlagStatus(TIM6,TIM_FLAG_Update)&&ADC_ConvertedValueLocal[4]>Detcet_Thresholding)
+		if(TIM_GetFlagStatus(TIM6,TIM_FLAG_Update)&&ADC_ConvertedValueLocal[0]>1&&ADC_ConvertedValueLocal[1]>1)
 		{
 			break;
 		}
@@ -68,24 +65,21 @@ static void CAR_GO(void)
 		ADC_ConvertedValueLocal[3] =(float) ADC_ConvertedValue[3]/4096*3.3;
 		ADC_ConvertedValueLocal[4] =(float) ADC_ConvertedValue[4]/4096*3.3;
 		ADC_ConvertedValueLocal[5] =(float) ADC_ConvertedValue[5]/4096*3.3;
-		ADC_ConvertedValueLocal[6] =(float) ADC_ConvertedValue[6]/4096*3.3;
-		ADC_ConvertedValueLocal[7] =(float) ADC_ConvertedValue[7]/4096*3.3;
-		ADC_ConvertedValueLocal[8] =(float) ADC_ConvertedValue[8]/4096*3.3;
 		PWM_PA4();
 		PWM_PA5();
 		PWM_PA6();
 		PWM_PA7();
-		if(ADC_ConvertedValueLocal[2]>Detcet_Thresholding||ADC_ConvertedValueLocal[8]>Detcet_Thresholding)
+		if(ADC_ConvertedValueLocal[0]>1)
 		{
 			Right_Forward=Desired_Number;
 			Right_Backward=Desired_Number;
 		}
-		if(ADC_ConvertedValueLocal[0]>Detcet_Thresholding||ADC_ConvertedValueLocal[6]>Detcet_Thresholding)
+		if(ADC_ConvertedValueLocal[1]>1)
 		{
 			Left_Forward=Desired_Number;
       Left_Backward=Desired_Number;
 		}
-		if(TIM_GetFlagStatus(TIM6,TIM_FLAG_Update)&&ADC_ConvertedValueLocal[4]>Detcet_Thresholding)
+		if(TIM_GetFlagStatus(TIM6,TIM_FLAG_Update)&&ADC_ConvertedValueLocal[0]>1&&ADC_ConvertedValueLocal[1]>1)
 		{
 			break;
 		}
@@ -110,24 +104,21 @@ static void CAR_LEFT(void)
 		ADC_ConvertedValueLocal[3] =(float) ADC_ConvertedValue[3]/4096*3.3;
 		ADC_ConvertedValueLocal[4] =(float) ADC_ConvertedValue[4]/4096*3.3;
 		ADC_ConvertedValueLocal[5] =(float) ADC_ConvertedValue[5]/4096*3.3;
-		ADC_ConvertedValueLocal[6] =(float) ADC_ConvertedValue[6]/4096*3.3;
-		ADC_ConvertedValueLocal[7] =(float) ADC_ConvertedValue[7]/4096*3.3;
-		ADC_ConvertedValueLocal[8] =(float) ADC_ConvertedValue[8]/4096*3.3;
 		PWM_PA0();
 		PWM_PA5();
 		PWM_PA6();
 		PWM_PA3();
-		if(ADC_ConvertedValueLocal[5]>Detcet_Thresholding)
+		if(ADC_ConvertedValueLocal[0]>1)
 		{
 			Right_Forward=Desired_Number;
-			Left_Forward=Desired_Number;
-		}
-		if(ADC_ConvertedValueLocal[3]>Detcet_Thresholding)
-		{
 			Right_Backward=Desired_Number;
+		}
+		if(ADC_ConvertedValueLocal[1]>1)
+		{
+			Left_Forward=Desired_Number;
       Left_Backward=Desired_Number;
 		}
-		if(TIM_GetFlagStatus(TIM6,TIM_FLAG_Update)&&ADC_ConvertedValueLocal[1]>Detcet_Thresholding&&ADC_ConvertedValueLocal[7]>Detcet_Thresholding)
+		if(TIM_GetFlagStatus(TIM6,TIM_FLAG_Update)&&ADC_ConvertedValueLocal[0]>1&&ADC_ConvertedValueLocal[1]>1)
 		{
 			break;
 		}
@@ -152,24 +143,21 @@ static void CAR_RIGHT(void)
 		ADC_ConvertedValueLocal[3] =(float) ADC_ConvertedValue[3]/4096*3.3;
 		ADC_ConvertedValueLocal[4] =(float) ADC_ConvertedValue[4]/4096*3.3;
 		ADC_ConvertedValueLocal[5] =(float) ADC_ConvertedValue[5]/4096*3.3;
-		ADC_ConvertedValueLocal[6] =(float) ADC_ConvertedValue[6]/4096*3.3;
-		ADC_ConvertedValueLocal[7] =(float) ADC_ConvertedValue[7]/4096*3.3;
-		ADC_ConvertedValueLocal[8] =(float) ADC_ConvertedValue[8]/4096*3.3;
 		PWM_PA4();
 		PWM_PA1();
 		PWM_PA2();
 		PWM_PA7();
-		if(ADC_ConvertedValueLocal[5]>Detcet_Thresholding)
+		if(ADC_ConvertedValueLocal[0]>1)
 		{
 			Right_Forward=Desired_Number;
-			Left_Forward=Desired_Number;
-		}
-		if(ADC_ConvertedValueLocal[3]>Detcet_Thresholding)
-		{
 			Right_Backward=Desired_Number;
+		}
+		if(ADC_ConvertedValueLocal[1]>1)
+		{
+			Left_Forward=Desired_Number;
       Left_Backward=Desired_Number;
 		}
-		if(TIM_GetFlagStatus(TIM6,TIM_FLAG_Update)&&ADC_ConvertedValueLocal[1]>Detcet_Thresholding&&ADC_ConvertedValueLocal[7]>Detcet_Thresholding)
+		if(TIM_GetFlagStatus(TIM6,TIM_FLAG_Update)&&ADC_ConvertedValueLocal[0]>1&&ADC_ConvertedValueLocal[1]>1)
 		{
 			break;
 		}
