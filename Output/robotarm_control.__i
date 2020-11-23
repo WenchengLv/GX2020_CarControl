@@ -2,4 +2,4 @@
 -I D:\app\keil\ARM\RV31\INC 
 -I D:\app\keil\ARM\CMSIS\Include 
 -I D:\app\keil\ARM\Inc\ST\STM32F10x 
--DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -o "..\Output\bsp_usart.o" --omf_browse "..\Output\bsp_usart.crf" --depend "..\Output\bsp_usart.d" "..\User\bsp_usart.c"
+-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -o "..\Output\robotarm_control.o" --omf_browse "..\Output\robotarm_control.crf" --depend "..\Output\robotarm_control.d" "..\User\RobotArm_Control\RobotArm_Control.c"

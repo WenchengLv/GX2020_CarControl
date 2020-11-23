@@ -34,3 +34,4 @@
 ..\Output\main.o: ..\User\bsp_GeneralTim\bsp_GeneralTim.h
 ..\Output\main.o: ..\User\MeasureTim\MeasureTim.h
 ..\Output\main.o: ..\User\car\car.h
+..\Output\main.o: ..\User\RobotArm_Tim\RobotArm_Tim.h

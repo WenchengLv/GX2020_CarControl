@@ -8,8 +8,8 @@
 #define            RobotArm_TIM                   TIM1
 #define            RobotArm_TIM_APBxClock_FUN     RCC_APB2PeriphClockCmd
 #define            RobotArm_TIM_CLK               RCC_APB2Periph_TIM1
-#define            RobotArm_TIM_Period            10000
-#define            RobotArm_TIM_Prescaler         10
+#define            RobotArm_TIM_Period            60000
+#define            RobotArm_TIM_Prescaler         35
 // TIM3 输出比较通道1
 #define            RobotArm_TIM_CH1_GPIO_CLK      RCC_APB2Periph_GPIOA
 #define            RobotArm_TIM_CH1_PORT          GPIOA
@@ -30,5 +30,7 @@
 #define            RobotArm_TIM_CH4_PORT          GPIOA
 #define            RobotArm_TIM_CH4_PIN           GPIO_Pin_11
 
+void RobotArm_TIM_Init(void);
+void RobotArm_Enable(void);
 
 #endif

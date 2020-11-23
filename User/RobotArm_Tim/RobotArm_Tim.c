@@ -1,5 +1,10 @@
 #include "RobotArm_Tim.h"
 
+extern u16 RobotArm_1;
+extern u16 RobotArm_2;
+extern u16 RobotArm_3;
+extern u16 RobotArm_4;
+
 static void RobotArm_TIM_GPIO_Config(void) 
 {
   GPIO_InitTypeDef GPIO_InitStructure;
@@ -32,7 +37,7 @@ static void RobotArm_TIM_GPIO_Config(void)
   GPIO_Init(RobotArm_TIM_CH4_PORT, &GPIO_InitStructure);
 }
 
-static void GENERAL_TIM_Mode_Config(void)
+static void RobotArm_TIM_Mode_Config(void)
 {
 	TIM_OCInitTypeDef  TIM_OCInitStructure;
 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
@@ -52,21 +57,92 @@ static void GENERAL_TIM_Mode_Config(void)
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
 
 	TIM_OCInitStructure.TIM_Pulse = 0;
-	TIM_OC1Init(GENERAL_TIM, &TIM_OCInitStructure);
-	TIM_OC1PreloadConfig(GENERAL_TIM, TIM_OCPreload_Enable);
+	TIM_OC1Init(RobotArm_TIM, &TIM_OCInitStructure);
+	TIM_OC1PreloadConfig(RobotArm_TIM, TIM_OCPreload_Enable);
 	
 	TIM_OCInitStructure.TIM_Pulse = 0;
-	TIM_OC2Init(GENERAL_TIM, &TIM_OCInitStructure);
-	TIM_OC2PreloadConfig(GENERAL_TIM, TIM_OCPreload_Enable);
+	TIM_OC2Init(RobotArm_TIM, &TIM_OCInitStructure);
+	TIM_OC2PreloadConfig(RobotArm_TIM, TIM_OCPreload_Enable);
 	
 	TIM_OCInitStructure.TIM_Pulse = 0;
-	TIM_OC3Init(GENERAL_TIM, &TIM_OCInitStructure);
-	TIM_OC3PreloadConfig(GENERAL_TIM, TIM_OCPreload_Enable);
+	TIM_OC3Init(RobotArm_TIM, &TIM_OCInitStructure);
+	TIM_OC3PreloadConfig(RobotArm_TIM, TIM_OCPreload_Enable);
 	
 	TIM_OCInitStructure.TIM_Pulse = 0;
-	TIM_OC4Init(GENERAL_TIM, &TIM_OCInitStructure);
-	TIM_OC4PreloadConfig(GENERAL_TIM, TIM_OCPreload_Enable);
+	TIM_OC4Init(RobotArm_TIM, &TIM_OCInitStructure);
+	TIM_OC4PreloadConfig(RobotArm_TIM, TIM_OCPreload_Enable);
 	
 	// 使能计数器
 	TIM_Cmd(RobotArm_TIM, ENABLE);
+}
+
+void PWM_ArmRobot_1(void)
+{
+	TIM_OCInitTypeDef  TIM_OCInitStructure;
+
+	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+
+	TIM_OCInitStructure.TIM_Pulse = RobotArm_1;
+	
+	TIM_OC1Init(RobotArm_TIM, &TIM_OCInitStructure);
+	TIM_OC1PreloadConfig(RobotArm_TIM, TIM_OCPreload_Enable);
+}
+
+void PWM_ArmRobot_2(void)
+{
+	TIM_OCInitTypeDef  TIM_OCInitStructure;
+
+	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+
+	TIM_OCInitStructure.TIM_Pulse = RobotArm_2;
+	
+	TIM_OC2Init(RobotArm_TIM, &TIM_OCInitStructure);
+	TIM_OC2PreloadConfig(RobotArm_TIM, TIM_OCPreload_Enable);
+}
+
+void PWM_ArmRobot_3(void)
+{
+	TIM_OCInitTypeDef  TIM_OCInitStructure;
+
+	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+	
+	TIM_OCInitStructure.TIM_Pulse = RobotArm_3;
+	
+	TIM_OC3Init(RobotArm_TIM, &TIM_OCInitStructure);
+	TIM_OC3PreloadConfig(RobotArm_TIM, TIM_OCPreload_Enable);
+}
+
+void PWM_ArmRobot_4(void)
+{
+	TIM_OCInitTypeDef  TIM_OCInitStructure;
+
+	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+	
+	TIM_OCInitStructure.TIM_Pulse = RobotArm_4;
+	
+	TIM_OC4Init(RobotArm_TIM, &TIM_OCInitStructure);
+	TIM_OC4PreloadConfig(RobotArm_TIM, TIM_OCPreload_Enable);
+}
+
+
+void RobotArm_Enable(void)
+{
+	PWM_ArmRobot_1();
+	PWM_ArmRobot_2();
+	PWM_ArmRobot_3();
+	PWM_ArmRobot_4();
+}
+
+void RobotArm_TIM_Init(void)
+{
+	RobotArm_TIM_GPIO_Config();
+	RobotArm_TIM_Mode_Config();
 }

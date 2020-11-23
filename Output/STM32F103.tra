@@ -9,6 +9,8 @@
 ### List of Objects: adding '"..\output\bsp_generaltim.o"'
 ### List of Objects: adding '"..\output\measuretim.o"'
 ### List of Objects: adding '"..\output\car.o"'
+### List of Objects: adding '"..\output\robotarm_tim.o"'
+### List of Objects: adding '"..\output\robotarm_control.o"'
 ### List of Objects: adding '"..\output\core_cm3.o"'
 ### List of Objects: adding '"..\output\system_stm32f10x.o"'
 ### List of Objects: adding '"..\output\misc.o"'
@@ -35,14 +37,14 @@
 ### List of Objects: adding '"..\output\stm32f10x_usart.o"'
 ### List of Objects: adding '"..\output\stm32f10x_wwdg.o"'
 ### ADS-LD Command completed:
---cpu Cortex-M3 "..\output\startup_stm32f10x_hd.o" "..\output\main.o" "..\output\stm32f10x_it.o" "..\output\bsp_usart.o" "..\output\bsp_adc.o" "..\output\bsp_generaltim.o" "..\output\measuretim.o" "..\output\car.o" "..\output\core_cm3.o" "..\output\system_stm32f10x.o" "..\output\misc.o" "..\output\stm32f10x_adc.o" "..\output\stm32f10x_bkp.o" "..\output\stm32f10x_can.o" "..\output\stm32f10x_cec.o" "..\output\stm32f10x_crc.o" "..\output\stm32f10x_dac.o" "..\output\stm32f10x_dbgmcu.o" "..\output\stm32f10x_dma.o" "..\output\stm32f10x_exti.o" "..\output\stm32f10x_flash.o" "..\output\stm32f10x_fsmc.o" "..\output\stm32f10x_gpio.o" "..\output\stm32f10x_i2c.o" "..\output\stm32f10x_iwdg.o" "..\output\stm32f10x_pwr.o" "..\output\stm32f10x_rcc.o" "..\output\stm32f10x_rtc.o" "..\output\stm32f10x_sdio.o" "..\output\stm32f10x_spi.o" "..\output\stm32f10x_tim.o" "..\output\stm32f10x_usart.o" "..\output\stm32f10x_wwdg.o" 
+--cpu Cortex-M3 "..\output\startup_stm32f10x_hd.o" "..\output\main.o" "..\output\stm32f10x_it.o" "..\output\bsp_usart.o" "..\output\bsp_adc.o" "..\output\bsp_generaltim.o" "..\output\measuretim.o" "..\output\car.o" "..\output\robotarm_tim.o" "..\output\robotarm_control.o" "..\output\core_cm3.o" "..\output\system_stm32f10x.o" "..\output\misc.o" "..\output\stm32f10x_adc.o" "..\output\stm32f10x_bkp.o" "..\output\stm32f10x_can.o" "..\output\stm32f10x_cec.o" "..\output\stm32f10x_crc.o" "..\output\stm32f10x_dac.o" "..\output\stm32f10x_dbgmcu.o" "..\output\stm32f10x_dma.o" "..\output\stm32f10x_exti.o" "..\output\stm32f10x_flash.o" "..\output\stm32f10x_fsmc.o" "..\output\stm32f10x_gpio.o" "..\output\stm32f10x_i2c.o" "..\output\stm32f10x_iwdg.o" "..\output\stm32f10x_pwr.o" "..\output\stm32f10x_rcc.o" "..\output\stm32f10x_rtc.o" "..\output\stm32f10x_sdio.o" "..\output\stm32f10x_spi.o" "..\output\stm32f10x_tim.o" "..\output\stm32f10x_usart.o" "..\output\stm32f10x_wwdg.o" 
 --library_type=microlib --ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
  --list "..\Listing\STM32F103.map" -o ..\Output\STM32F103.axf### Preparing Environment (PrepEnvAds)
 ### ADS-LD Output File: '..\Output\STM32F103.axf'
 ### ADS-LD Command File: '..\Output\STM32F103.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '..\Output\STM32F103.lnp', Handle=0x000009F0
+### Creating CmdFile '..\Output\STM32F103.lnp', Handle=0x00001B88
 ### Writing '.lnp' file
 ### ADS-LD Command file '..\Output\STM32F103.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.
