@@ -1,0 +1,5 @@
+-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\bsp_GeneralTim 
+-I D:\app\keil\ARM\RV31\INC 
+-I D:\app\keil\ARM\CMSIS\Include 
+-I D:\app\keil\ARM\Inc\ST\STM32F10x 
+-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -o "..\Output\bsp_timer.o" --omf_browse "..\Output\bsp_timer.crf" --depend "..\Output\bsp_timer.d" "..\User\bsp_timer.c"

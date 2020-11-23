@@ -1,0 +1,5 @@
+-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\bsp_GeneralTim -I..\User\MeasureTim -I..\User\car -I..\User\RobotArm_Tim 
+-I D:\app\keil\ARM\RV31\INC 
+-I D:\app\keil\ARM\CMSIS\Include 
+-I D:\app\keil\ARM\Inc\ST\STM32F10x 
+-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD -o "..\Output\stm32f10x_crc.o" --omf_browse "..\Output\stm32f10x_crc.crf" --depend "..\Output\stm32f10x_crc.d" "..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_crc.c"
