@@ -8,7 +8,9 @@
 
 
 #define chartonumber(x) (x-'0')
-#define Desired_Number   6300
+#define Desired_Number   4000
+#define Detect_Threshold   1.5
+#define init_pwm     			2500
 
 void CAR_Down(u8 step);
 void CAR_Go(u8 step);

@@ -9,9 +9,9 @@ static void GENERAL_TIM_NVIC_Config(void)
 		// 设置中断来源
     NVIC_InitStructure.NVIC_IRQChannel = GENERAL_TIM_IRQ ;	
 		// 设置主优先级为 0
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	 
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;	 
 	  // 设置抢占优先级为3
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;	
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;	
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 }
@@ -139,7 +139,7 @@ static void TIM6_Config(void)
 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6,ENABLE);
-	TIM_TimeBaseStructure.TIM_Period=40000;	
+	TIM_TimeBaseStructure.TIM_Period=8000;	
 	TIM_TimeBaseStructure.TIM_Prescaler=7199;	
 
 	TIM_TimeBaseInit(TIM6, &TIM_TimeBaseStructure);

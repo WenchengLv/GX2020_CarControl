@@ -151,16 +151,18 @@ void DEBUG_USART_IRQHandler(void)
 	u8 dir=0;
 	u8 d=0;
 	u8 d1=0;
+	u8 d2=0;
   dir = getchar();
      d=getchar();		
      printf("dir=%c\n",dir);
-     printf("d=%d\n",d);
+     
      d1=chartonumber(d);
+	d2=getchar();	
 		 printf("d1=%d\n",d1);
 		switch(dir)
    {
 			case 'A': CAR_Go(d1);break;
-      case 'B': CAR_Down(1);break;
+      case 'B': CAR_Down(d1);break;
 		  case 'C': CAR_Left(d1);break;
 		  case 'D': CAR_Right(d1);break;
 	 }
@@ -186,8 +188,13 @@ u16  timecount_D=0;
 u16  timecount1_D=0;
 u16  test_D=0;
 
-u16 desired_v=0x5CEC;    //11250
-u16  PID_P=500;
+u16 desired_v=3000;    //11250
+u16  PID_P=10;
+
+void Delay_it(__IO uint32_t nCount)
+{
+  for(; nCount != 0; nCount--);
+} 
 
 void TIM4_IRQHandler(void)
 {
@@ -203,6 +210,7 @@ void TIM4_IRQHandler(void)
        else if(state_A==1)//????????
        {
 				 u16 error=0;
+				 u16 fix_bug;
            state_A=0;
            timecount1=TIM_GetCapture1(TIM4);   //?????????CNT?
            if(timecount<timecount1)
@@ -218,13 +226,24 @@ void TIM4_IRQHandler(void)
 						{
 							error=test-desired_v;
 
-							Left_Forward = Left_Forward+error/PID_P;
+							fix_bug = Left_Forward+error/PID_P;
 						}else
 						{
 							error=desired_v-test;
-							Left_Forward = Left_Forward-error/PID_P;
+							//Left_Forward = Left_Forward-error/PID_P;
+							fix_bug = Left_Forward-error/PID_P;
 						}
-						printf("s%d",Left_Forward);
+						if(fix_bug>5000)
+						{
+							Left_Forward=5000;
+						}else
+						{
+							Left_Forward=fix_bug;
+						}
+						
+						//printf("\r\nA=%d\r\n",test);
+						//printf("\r\nA_PWM=%d\r\n",Left_Forward);
+						
        }
    }
 	 if ( TIM_GetITStatus (TIM4, TIM_IT_CC2 ) != RESET)
@@ -237,8 +256,10 @@ void TIM4_IRQHandler(void)
        }
        else if(state_B==1)//????????
        {
-						u16 error=0;
+					u16 fix_bug=0;
+				 u16 error=0;
            state_B=0;
+				 
            timecount1_B=TIM_GetCapture2(TIM4);   //?????????CNT?
            if(timecount_B<timecount1_B)
            {
@@ -252,15 +273,24 @@ void TIM4_IRQHandler(void)
 						if(test_B>desired_v)
 						{
 							error=test_B-desired_v;
-							Right_Forward=Right_Forward+error/PID_P;
+							fix_bug=Right_Forward+error/PID_P;
 						}else
 						{
 							error=desired_v-test_B;
-							Right_Forward=Right_Forward-error/PID_P;
-						}	
-// 						printf("%dÏÂ\n",error);
-// 						printf("%dÉÏ\n",Right_Forward);
-						printf("m%d",Right_Forward);
+							fix_bug=Right_Forward-error/PID_P;
+						}
+	
+						if(fix_bug>5000)
+						{
+							Right_Forward=5000;
+						}else
+						{
+							Right_Forward=fix_bug;
+						}
+							
+						//printf("\r\nB =%d\r\n",test_B);
+						//printf("\r\nB =%d\r\n",Right_Forward);
+      
        }
    }
 	 
@@ -296,6 +326,8 @@ void TIM4_IRQHandler(void)
 							error=desired_v-test_C;
 							Left_Backward=Left_Backward-error/PID_P;
 						}  
+						//printf("\r\nC= %d\r\n",test_C);
+						//printf("\r\n PWM_A = %d V \r\n",Left_Backward);
        }
    }
 	 
@@ -330,6 +362,7 @@ void TIM4_IRQHandler(void)
 							error=desired_v-test_D;
 							Right_Backward=Right_Backward-error/PID_P;
 						}  
+					//printf("\r\nD =%d\r\n",test_D);
        }
    }
    

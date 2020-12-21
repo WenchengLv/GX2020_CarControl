@@ -12,7 +12,7 @@
 #define            GENERAL_TIM_APBxClock_FUN     RCC_APB1PeriphClockCmd
 #define            GENERAL_TIM_CLK4               RCC_APB1Periph_TIM4
 #define            GENERAL_TIM_PERIOD            0XFFFF
-#define            GENERAL_TIM_PSC              (7-1)
+#define            GENERAL_TIM_PSC              (71)
 
 // TIM 输入捕获通道GPIO相关宏定义
 #define            GENERAL_TIM_CH1_GPIO_CLK4      RCC_APB2Periph_GPIOB
