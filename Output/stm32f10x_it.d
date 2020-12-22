@@ -34,3 +34,4 @@
 ..\Output\stm32f10x_it.o: ..\User\bsp_GeneralTim\bsp_GeneralTim.h
 ..\Output\stm32f10x_it.o: ..\User\car\car.h
 ..\Output\stm32f10x_it.o: ..\User\bsp_adc.h
+..\Output\stm32f10x_it.o: ..\User\RobotArm_Tim\RobotArm_Tim.h

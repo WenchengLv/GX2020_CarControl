@@ -26,6 +26,8 @@
 #include "bsp_usart.h"
 #include "bsp_GeneralTim.h" 
 #include "car.h"
+#include "RobotArm_Tim.h"
+
 
 extern u16 Left_Forward;
 extern u16 Left_Backward;
@@ -165,6 +167,9 @@ void DEBUG_USART_IRQHandler(void)
       case 'B': CAR_Down(d1);break;
 		  case 'C': CAR_Left(d1);break;
 		  case 'D': CAR_Right(d1);break;
+			case 'E': RobotArm_Enable();break;
+		 default:
+			 break;
 	 }
 
 }
@@ -367,6 +372,14 @@ void TIM4_IRQHandler(void)
    }
    
 }
+
+// void  TIM1_UP_IRQHandler(void)
+// {
+// 	if ( TIM_GetITStatus( RobotArm_TIM, TIM_IT_Update) != RESET ) 
+// 	{	
+// 		TIM_ClearITPendingBit(RobotArm_TIM , TIM_FLAG_Update);  		 
+// 	}		 	
+// }
 
 
 /******************************************************************************/

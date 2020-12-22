@@ -4,9 +4,9 @@
 #include "stm32f10x.h"
 #include <stdio.h>
 
-#define DEBUG_USART1     1
+#define DEBUG_USART1     0
 #define DEBUG_USART2     0
-#define DEBUG_USART3     0
+#define DEBUG_USART3     1
 #define DEBUG_USART4     0
 #define DEBUG_USART5     0
 
